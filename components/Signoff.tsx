@@ -30,25 +30,32 @@ export default function Signoff() {
             <div className="hairline mb-6" />
             <div className="grid grid-cols-2 gap-6 text-[13px]">
               <div>
-                <div className="eyebrow mb-1">Kontakt</div>
+                <div className="eyebrow mb-1">E-Mail</div>
                 <a
-                  href="mailto:hello@schulz-stosse.de"
+                  href="mailto:info@schulz-stosse.de"
+                  className="text-ink-950 hover:text-signal-500 transition-colors break-all"
+                >
+                  info@schulz-stosse.de
+                </a>
+              </div>
+              <div>
+                <div className="eyebrow mb-1">Telefon</div>
+                <a
+                  href="tel:+4915168488999"
                   className="text-ink-950 hover:text-signal-500 transition-colors"
                 >
-                  hello@schulz-stosse.de
+                  +49 151 68488999
                 </a>
               </div>
               <div>
                 <div className="eyebrow mb-1">Standort</div>
-                <div className="text-ink-700">Saarbrücken · Remote</div>
+                <div className="text-ink-700">Völklingen · Remote</div>
               </div>
               <div>
-                <div className="eyebrow mb-1">Antwort</div>
-                <div className="text-ink-700">≤ 1 Werktag</div>
-              </div>
-              <div>
-                <div className="eyebrow mb-1">Verfügbar</div>
-                <div className="text-signal-500">Q4 · 2026</div>
+                <div className="eyebrow mb-1">Termin</div>
+                <a href="#contact" className="text-signal-500 hover:text-ink-950 transition-colors">
+                  Buchen →
+                </a>
               </div>
             </div>
           </div>

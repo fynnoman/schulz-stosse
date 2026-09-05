@@ -52,15 +52,20 @@ export default function Footer() {
           <div className="col-span-6 md:col-span-2">
             <div className="eyebrow !text-bone-300 mb-4">Kontakt</div>
             <ul className="space-y-2 text-[14px]">
-              <li><a href="mailto:hello@schulz-stosse.de" className="hover:text-signal-500 transition-colors">hello@schulz-stosse.de</a></li>
-              <li><a href="#contact" className="hover:text-signal-500 transition-colors">Projekt besprechen</a></li>
+              <li><a href="mailto:info@schulz-stosse.de" className="hover:text-signal-500 transition-colors">info@schulz-stosse.de</a></li>
+              <li><a href="tel:+4915168488999" className="hover:text-signal-500 transition-colors">+49 151 68488999</a></li>
+              <li><a href="#contact" className="hover:text-signal-500 transition-colors">Termin buchen</a></li>
             </ul>
           </div>
 
           <div className="col-span-12 md:col-span-3">
             <div className="eyebrow !text-bone-300 mb-4">Standort</div>
             <div className="text-[14px] leading-[1.6] text-ink-100">
-              Saarbrücken · Deutschland
+              Schulz &amp; Stosse GbR
+              <br />
+              In der Acht 44
+              <br />
+              66333 Völklingen · Deutschland
               <br />
               <span className="text-bone-300">Remote weltweit</span>
             </div>
