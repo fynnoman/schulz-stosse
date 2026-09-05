@@ -64,8 +64,7 @@ export default function WhatWeBuild() {
     <section
       id="what"
       ref={ref}
-      className="relative bg-ink-950 text-bone-50"
-      style={{ height: `${items.length * 100}vh` }}
+      className="relative bg-ink-950 text-bone-50 h-[240vh] md:h-[400vh]"
     >
       <div className="sticky top-0 h-screen overflow-hidden">
         <div className="absolute inset-0 opacity-[0.35]">

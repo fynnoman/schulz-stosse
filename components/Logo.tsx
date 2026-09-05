@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 /**
  * Shared Logo component.
  * Uses the black lockup on light backgrounds and the white lockup on dark.
@@ -13,11 +15,14 @@ export default function Logo({
   className?: string;
   heightClass?: string;
 }) {
-  const src = onDark ? "/logo-light.png" : "/logo-dark.png";
+  const src = onDark ? "/logo-light.webp" : "/logo-dark.webp";
   return (
-    <img
+    <Image
       src={src}
       alt="Schulz & Stosse — Software for Real Progress"
+      width={600}
+      height={327}
+      priority
       className={`${heightClass} w-auto object-contain select-none ${className}`}
       draggable={false}
     />

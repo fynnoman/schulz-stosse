@@ -1,7 +1,9 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
+import { useReducedParallax } from "./useReducedParallax";
 
 const leadership = [
   {
@@ -15,7 +17,7 @@ const leadership = [
       "KI-Integration",
       "Datenmodelle & APIs",
     ],
-    photo: "/julian.jpg",
+    photo: "/julian.webp",
   },
   {
     name: "Fynn-Luca Schulz",
@@ -28,17 +30,18 @@ const leadership = [
       "Business Modeling",
       "UX & Konzeption",
     ],
-    photo: "/fynn.jpg",
+    photo: "/fynn.webp",
   },
 ];
 
 export default function Founders() {
   const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedParallax();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const headY = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
+  const headY = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["10%", "-10%"]);
 
   return (
     <section id="founders" ref={ref} className="relative py-32 md:py-48 bg-bone-50 text-ink-950 overflow-hidden">
@@ -85,14 +88,12 @@ export default function Founders() {
                     }}
                   />
                   <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border border-black/10 bg-ink-100 shadow-[0_16px_60px_-20px_rgba(8,8,10,0.35)]">
-                    <img
+                    <Image
                       src={p.photo}
                       alt={p.name}
-                      loading="lazy"
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        (e.currentTarget as HTMLImageElement).style.display = "none";
-                      }}
+                      fill
+                      sizes="(min-width: 768px) 208px, 160px"
+                      className="object-cover"
                     />
                   </div>
                 </div>

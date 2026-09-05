@@ -3,6 +3,7 @@ import { Instrument_Serif, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import CalendlyProvider from "@/components/CalendlyProvider";
 import ScrollProgress from "@/components/ScrollProgress";
+import CookieConsent from "@/components/CookieConsent";
 
 const display = Instrument_Serif({
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({
       <body>
         <ScrollProgress />
         <CalendlyProvider>{children}</CalendlyProvider>
+        <CookieConsent />
       </body>
     </html>
   );

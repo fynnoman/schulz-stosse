@@ -4,18 +4,20 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import RotatingWord from "./RotatingWord";
 import HeroImage from "./HeroImage";
+import { useReducedParallax } from "./useReducedParallax";
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedParallax();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const titleY = useTransform(scrollYProgress, [0, 1], ["0%", "-24%"]);
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
-  const mockScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
-  const mockY = useTransform(scrollYProgress, [0, 1], ["0%", "-8%"]);
+  const titleY = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["0%", "-24%"]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.85], reduce ? [1, 1] : [1, 0]);
+  const mockScale = useTransform(scrollYProgress, [0, 1], reduce ? [1, 1] : [1, 1.12]);
+  const mockY = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["0%", "-8%"]);
 
   return (
     <section
@@ -27,9 +29,9 @@ export default function Hero() {
       <div className="grain absolute inset-0" />
 
       <div className="container-x relative z-10">
-        <div className="grid grid-cols-12 gap-8 md:gap-12 items-center">
+        <div className="grid grid-cols-12 gap-y-8 md:gap-12 items-center">
           {/* Left: headline + copy + CTAs */}
-          <div className="col-span-12 lg:col-span-6">
+          <div className="col-span-12 lg:col-span-6 min-w-0">
             <motion.h1
               style={{ y: titleY, opacity: titleOpacity }}
               className="display text-[clamp(46px,9vw,150px)] max-w-[18ch]"

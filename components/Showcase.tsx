@@ -2,28 +2,29 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useReducedParallax } from "./useReducedParallax";
 
 export default function Showcase() {
   const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedParallax();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.55, 1], [0.86, 1.02, 1.28]);
-  const radius = useTransform(scrollYProgress, [0, 0.55, 1], [40, 32, 0]);
-  const overlayOpacity = useTransform(scrollYProgress, [0.35, 0.75], [0, 0.72]);
-  const overlayBlur = useTransform(scrollYProgress, [0.35, 0.75], [0, 6]);
+  const scale = useTransform(scrollYProgress, [0, 0.55, 1], reduce ? [1, 1, 1] : [0.86, 1.02, 1.28]);
+  const radius = useTransform(scrollYProgress, [0, 0.55, 1], reduce ? [24, 24, 24] : [40, 32, 0]);
+  const overlayOpacity = useTransform(scrollYProgress, [0.35, 0.75], reduce ? [0.6, 0.6] : [0, 0.72]);
+  const overlayBlur = useTransform(scrollYProgress, [0.35, 0.75], reduce ? [0, 0] : [0, 6]);
   const overlayFilter = useTransform(overlayBlur, (b) => `blur(${b}px)`);
-  const contentOpacity = useTransform(scrollYProgress, [0.55, 0.78], [0, 1]);
-  const contentY = useTransform(scrollYProgress, [0.55, 0.85], [30, 0]);
+  const contentOpacity = useTransform(scrollYProgress, [0.55, 0.78], reduce ? [1, 1] : [0, 1]);
+  const contentY = useTransform(scrollYProgress, [0.55, 0.85], reduce ? [0, 0] : [30, 0]);
 
   return (
     <section
       id="showcase"
       ref={ref}
-      className="relative bg-bone-50"
-      style={{ height: "220vh" }}
+      className="relative bg-bone-50 h-[140vh] md:h-[220vh]"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {/* The scaling poster becomes background */}

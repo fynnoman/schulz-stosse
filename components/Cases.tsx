@@ -2,14 +2,16 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useReducedParallax } from "./useReducedParallax";
 
 export default function Cases() {
   const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedParallax();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+  const bgY = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["-8%", "8%"]);
 
   return (
     <section id="cases" ref={ref} className="relative py-32 md:py-48 bg-bone-50 text-ink-950 overflow-hidden">
@@ -19,7 +21,7 @@ export default function Cases() {
         aria-hidden
         className="absolute inset-x-0 -top-10 flex justify-center pointer-events-none select-none"
       >
-        <span className="display text-[clamp(140px,22vw,320px)] leading-none text-ink-950/[0.045] tracking-tighter">
+        <span aria-hidden="true" className="display text-[clamp(140px,22vw,320px)] leading-none text-ink-950/[0.045] tracking-tighter">
           Cases
         </span>
       </motion.div>

@@ -45,7 +45,7 @@ export default function Nav() {
             <Logo heightClass="h-8 md:h-9" />
           </a>
 
-          <ul className="hidden md:flex items-center gap-1">
+          <ul className="hidden lg:flex items-center gap-1">
             {links.map((l) => (
               <li key={l.href}>
                 <a
@@ -61,9 +61,10 @@ export default function Nav() {
           <div className="flex items-center gap-2">
             <a
               href="#contact"
-              className="btn btn-primary text-[13px] py-2 px-4"
+              className="btn btn-primary text-[13px] py-2 px-4 whitespace-nowrap"
             >
-              Projekt besprechen
+              <span className="sm:hidden">Termin</span>
+              <span className="hidden sm:inline">Projekt besprechen</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M5 12h14M13 6l6 6-6 6"
@@ -77,7 +78,7 @@ export default function Nav() {
             <button
               aria-label="Menü"
               onClick={() => setOpen((v) => !v)}
-              className="md:hidden inline-flex items-center justify-center rounded-full w-9 h-9 border border-black/10 text-ink-900"
+              className="lg:hidden inline-flex items-center justify-center rounded-full w-9 h-9 border border-black/10 text-ink-900"
             >
               <span className="sr-only">Menü</span>
               <div className="relative w-4 h-4">
@@ -102,7 +103,7 @@ export default function Nav() {
         initial={false}
         animate={{ opacity: open ? 1 : 0, pointerEvents: open ? "auto" : "none" }}
         transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
-        className="md:hidden fixed inset-0 z-40 bg-bone-50/85 backdrop-blur-2xl pt-24 px-6"
+        className="lg:hidden fixed inset-0 z-40 bg-bone-50/85 backdrop-blur-2xl pt-24 px-6"
       >
         <ul className="flex flex-col gap-2">
           {links.map((l, i) => (

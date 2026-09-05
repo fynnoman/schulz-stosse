@@ -2,16 +2,18 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useReducedParallax } from "./useReducedParallax";
 
 export default function Manifesto() {
   const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedParallax();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
   const lineWidth = useTransform(scrollYProgress, [0.15, 0.55], ["0%", "100%"]);
-  const stickyY = useTransform(scrollYProgress, [0, 1], ["-6%", "8%"]);
+  const stickyY = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["-6%", "8%"]);
 
   return (
     <section

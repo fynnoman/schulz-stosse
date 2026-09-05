@@ -1,4 +1,7 @@
+"use client";
+
 import Logo from "./Logo";
+import { openConsentBanner } from "./CookieConsent";
 
 export default function Footer() {
   return (
@@ -87,6 +90,13 @@ export default function Footer() {
           <div className="flex items-center gap-5">
             <a href="/impressum" className="hover:text-bone-50 transition-colors">Impressum</a>
             <a href="/datenschutz" className="hover:text-bone-50 transition-colors">Datenschutz</a>
+            <button
+              type="button"
+              onClick={openConsentBanner}
+              className="hover:text-bone-50 transition-colors"
+            >
+              Cookies
+            </button>
             <span className="font-mono">v.2026.09</span>
           </div>
         </div>

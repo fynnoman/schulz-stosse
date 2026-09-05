@@ -1,7 +1,8 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { getConsent, setConsent } from "./CookieConsent";
 
 const CAL_URL =
   "https://calendly.com/fynn-taskeyapp/kennenlerngesprach?primary_color=0d4ca7";
@@ -47,6 +48,7 @@ export default function CalendlyModal({
   onClose: () => void;
 }) {
   const holderRef = useRef<HTMLDivElement>(null);
+  const [allowed, setAllowed] = useState(false);
 
   // Lock body scroll while open
   useEffect(() => {
@@ -58,9 +60,15 @@ export default function CalendlyModal({
     };
   }, [open]);
 
-  // Init widget when opened
+  // Re-check consent whenever modal opens
   useEffect(() => {
     if (!open) return;
+    setAllowed(getConsent() === "all");
+  }, [open]);
+
+  // Init widget only after consent is granted
+  useEffect(() => {
+    if (!open || !allowed) return;
     let cancelled = false;
     (async () => {
       await loadCalendlyScript();
@@ -74,7 +82,12 @@ export default function CalendlyModal({
     return () => {
       cancelled = true;
     };
-  }, [open]);
+  }, [open, allowed]);
+
+  const grantAndLoad = () => {
+    setConsent("all");
+    setAllowed(true);
+  };
 
   // Esc to close
   useEffect(() => {
@@ -146,12 +159,51 @@ export default function CalendlyModal({
 
               {/* Widget holder */}
               <div className="relative w-full" style={{ height: "min(700px, 78vh)" }}>
-                <div
-                  ref={holderRef}
-                  className="calendly-inline-widget w-full h-full"
-                  data-url={CAL_URL}
-                  style={{ minWidth: 320, height: "100%" }}
-                />
+                {allowed ? (
+                  <div
+                    ref={holderRef}
+                    className="calendly-inline-widget w-full h-full"
+                    data-url={CAL_URL}
+                    style={{ minWidth: 320, height: "100%" }}
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center p-6 md:p-10">
+                    <div className="max-w-[520px] w-full text-center">
+                      <div className="eyebrow mb-4">Externer Dienst</div>
+                      <h3 className="display text-[clamp(24px,3vw,36px)] leading-[1.05] mb-4">
+                        Calendly zur Terminbuchung laden?
+                      </h3>
+                      <p className="text-[14.5px] leading-[1.6] text-ink-700 mb-6">
+                        Für die Terminbuchung nutzen wir den externen Dienst
+                        Calendly (Calendly LLC, USA). Beim Laden werden
+                        Verbindungs- und Nutzungsdaten an Calendly übertragen.
+                        Weitere Informationen finden Sie in unserer{" "}
+                        <a
+                          href="/datenschutz"
+                          className="text-ink-950 underline underline-offset-2 hover:text-signal-500 transition-colors"
+                        >
+                          Datenschutzerklärung
+                        </a>
+                        .
+                      </p>
+                      <div className="flex flex-wrap items-center justify-center gap-3">
+                        <button
+                          type="button"
+                          onClick={grantAndLoad}
+                          className="btn btn-primary"
+                        >
+                          Zustimmen und Termin buchen
+                        </button>
+                        <a
+                          href="mailto:info@schulz-stosse.de"
+                          className="btn btn-ghost"
+                        >
+                          Alternativ per E-Mail
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </motion.div>
           </div>

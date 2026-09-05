@@ -2,16 +2,18 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useReducedParallax } from "./useReducedParallax";
 
 export default function Contact() {
   const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedParallax();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end end"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["18%", "-4%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [0.94, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["18%", "-4%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], reduce ? [1, 1] : [0.94, 1]);
 
   return (
     <section id="contact" ref={ref} className="relative py-32 md:py-56 bg-ink-950 text-bone-50 overflow-hidden">
@@ -23,7 +25,7 @@ export default function Contact() {
         style={{ y, scale }}
         className="absolute inset-x-0 top-4 flex justify-center pointer-events-none select-none"
       >
-        <span className="display italic text-[clamp(140px,26vw,420px)] leading-none text-white/[0.04] tracking-tighter">
+        <span aria-hidden="true" className="display italic text-[clamp(140px,26vw,420px)] leading-none text-white/[0.04] tracking-tighter">
           Let&rsquo;s build.
         </span>
       </motion.div>

@@ -3,15 +3,17 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Logo from "./Logo";
+import { useReducedParallax } from "./useReducedParallax";
 
 export default function Signoff() {
   const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedParallax();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["6%", "-6%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [0.98, 1.04]);
+  const y = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["6%", "-6%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], reduce ? [1, 1] : [0.98, 1.04]);
 
   return (
     <section ref={ref} className="relative bg-bone-50 text-ink-950 py-24 md:py-36 overflow-hidden">
