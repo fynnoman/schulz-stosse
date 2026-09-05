@@ -9,6 +9,7 @@ import Capabilities from "@/components/Capabilities";
 import Process from "@/components/Process";
 import Founders from "@/components/Founders";
 import Cases from "@/components/Cases";
+import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Signoff from "@/components/Signoff";
 import Footer from "@/components/Footer";
@@ -27,6 +28,7 @@ export default function Home() {
       <Process />
       <Cases />
       <Founders />
+      <FAQ />
       <Contact />
       <Signoff />
       <Footer />

@@ -42,22 +42,24 @@ export default function Footer() {
           </div>
 
           <div className="col-span-6 md:col-span-2">
-            <div className="eyebrow !text-bone-300 mb-4">Site</div>
+            <div className="eyebrow !text-bone-300 mb-4">Leistungen</div>
             <ul className="space-y-2 text-[14px]">
-              <li><a href="#what" className="hover:text-signal-500 transition-colors">Was wir bauen</a></li>
-              <li><a href="#services" className="hover:text-signal-500 transition-colors">Leistungen</a></li>
-              <li><a href="#process" className="hover:text-signal-500 transition-colors">Vorgehen</a></li>
-              <li><a href="#cases" className="hover:text-signal-500 transition-colors">Cases</a></li>
-              <li><a href="#founders" className="hover:text-signal-500 transition-colors">Team</a></li>
+              <li><a href="/leistungen/individualsoftware" className="hover:text-signal-500 transition-colors">Individualsoftware</a></li>
+              <li><a href="/leistungen/ki-automatisierung" className="hover:text-signal-500 transition-colors">KI &amp; Automatisierung</a></li>
+              <li><a href="/leistungen/saas-entwicklung" className="hover:text-signal-500 transition-colors">SaaS-Entwicklung</a></li>
+              <li><a href="/#services" className="hover:text-signal-500 transition-colors">Alle Leistungen</a></li>
             </ul>
           </div>
 
           <div className="col-span-6 md:col-span-2">
-            <div className="eyebrow !text-bone-300 mb-4">Kontakt</div>
+            <div className="eyebrow !text-bone-300 mb-4">Unternehmen</div>
             <ul className="space-y-2 text-[14px]">
+              <li><a href="/team" className="hover:text-signal-500 transition-colors">Team</a></li>
+              <li><a href="/#process" className="hover:text-signal-500 transition-colors">Vorgehen</a></li>
+              <li><a href="/#cases" className="hover:text-signal-500 transition-colors">Cases</a></li>
+              <li><a href="/#faq" className="hover:text-signal-500 transition-colors">Häufige Fragen</a></li>
               <li><a href="mailto:info@schulz-stosse.de" className="hover:text-signal-500 transition-colors">info@schulz-stosse.de</a></li>
               <li><a href="tel:+4915168488999" className="hover:text-signal-500 transition-colors">+49 151 68488999</a></li>
-              <li><a href="#contact" className="hover:text-signal-500 transition-colors">Termin buchen</a></li>
             </ul>
           </div>
 

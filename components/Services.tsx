@@ -8,18 +8,21 @@ const services = [
     t: "Individuelle Softwareentwicklung",
     d: "Webanwendungen, Plattformen, Portale und interne Unternehmenssoftware. Zugeschnitten auf die tatsächlichen Prozesse Ihres Unternehmens.",
     Icon: IconBlocks,
+    href: "/leistungen/individualsoftware",
   },
   {
     n: "02",
     t: "KI & Automatisierung",
     d: "Assistenten, Agents, intelligente Workflows und automatisierte Prozesse. Native KI, integriert in reale Arbeitsabläufe.",
     Icon: IconSpark,
+    href: "/leistungen/ki-automatisierung",
   },
   {
     n: "03",
     t: "SaaS Development",
     d: "Von der Konzeption über MVP bis zum skalierten Produkt. Architektur, Interface, Backend und Wachstum aus einer Hand.",
     Icon: IconStack,
+    href: "/leistungen/saas-entwicklung",
   },
   {
     n: "04",
@@ -74,34 +77,55 @@ export default function Services() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-          {services.map((s, i) => (
-            <motion.article
-              key={s.n}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{
-                duration: 0.65,
-                delay: i * 0.04,
-                ease: [0.23, 1, 0.32, 1],
-              }}
-              className="card-glass group h-full flex flex-col"
-            >
-              <div className="flex items-start justify-between mb-6">
-                <s.Icon />
-                <span className="rail-num text-[11px] text-ink-300 tracking-[0.16em]">{s.n}</span>
-              </div>
-              <h3 className="display text-[24px] leading-[1.1] mb-3 tracking-tighter2">
-                {s.t}
-              </h3>
-              <p className="text-[13.5px] leading-[1.55] text-ink-500 flex-1">
-                {s.d}
-              </p>
-              <div className="mt-6 flex items-center gap-2 text-[12px] text-ink-950 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="link">Mehr erfahren</span>
-              </div>
-            </motion.article>
-          ))}
+          {services.map((s, i) => {
+            const inner = (
+              <>
+                <div className="flex items-start justify-between mb-6">
+                  <s.Icon />
+                  <span className="rail-num text-[11px] text-ink-300 tracking-[0.16em]">
+                    {s.n}
+                  </span>
+                </div>
+                <h3 className="display text-[24px] leading-[1.1] mb-3 tracking-tighter2">
+                  {s.t}
+                </h3>
+                <p className="text-[13.5px] leading-[1.55] text-ink-500 flex-1">
+                  {s.d}
+                </p>
+                {s.href && (
+                  <div className="mt-6 flex items-center gap-2 text-[12px] text-ink-950">
+                    <span className="link">Mehr erfahren</span>
+                  </div>
+                )}
+              </>
+            );
+            return (
+              <motion.article
+                key={s.n}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  duration: 0.65,
+                  delay: i * 0.04,
+                  ease: [0.23, 1, 0.32, 1],
+                }}
+                className="card-glass group h-full flex flex-col"
+              >
+                {s.href ? (
+                  <a
+                    href={s.href}
+                    className="flex flex-col h-full"
+                    aria-label={`${s.t}: Details ansehen`}
+                  >
+                    {inner}
+                  </a>
+                ) : (
+                  inner
+                )}
+              </motion.article>
+            );
+          })}
         </div>
 
         <div className="mt-16 grid grid-cols-12 gap-6 items-center">

@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import CalendlyProvider from "@/components/CalendlyProvider";
 import ScrollProgress from "@/components/ScrollProgress";
 import CookieConsent from "@/components/CookieConsent";
+import Schema from "@/components/Schema";
 
 const display = Instrument_Serif({
   subsets: ["latin"],
@@ -27,16 +28,109 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
+const SITE_URL = "https://schulz-stosse.de";
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#faf8f4" },
+    { media: "(prefers-color-scheme: dark)", color: "#08080a" },
+  ],
+  colorScheme: "light",
+};
+
 export const metadata: Metadata = {
-  title: "Schulz & Stosse · Software, die sich Ihrem Unternehmen anpasst.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Schulz & Stosse · Individuelle Software, KI & digitale Produkte",
+    template: "%s · Schulz & Stosse",
+  },
   description:
-    "Schulz & Stosse entwickelt individuelle Softwaresysteme, digitale Produkte und KI-gestützte Prozesse für Unternehmen mit Anforderungen, die Standardsoftware nicht abbilden kann.",
-  metadataBase: new URL("https://schulz-stosse.de"),
+    "Schulz & Stosse entwickelt individuelle Softwaresysteme, KI-gestützte Prozesse und digitale Produkte für Unternehmen mit Anforderungen, die Standardsoftware nicht abbilden kann. Softwareagentur aus dem Saarland, aktiv in ganz DACH.",
+  applicationName: "Schulz & Stosse",
+  generator: "Next.js",
+  keywords: [
+    "Individuelle Softwareentwicklung",
+    "Custom Software",
+    "Softwareagentur",
+    "KI-Integration",
+    "KI-Automatisierung",
+    "SaaS-Entwicklung",
+    "Digitale Produkte",
+    "Prozessautomatisierung",
+    "Softwareentwicklung Saarland",
+    "Softwareagentur Völklingen",
+    "Softwareagentur Saarbrücken",
+    "Business Software",
+    "Operations Software",
+    "Kundenportal Entwicklung",
+    "Management Dashboard",
+    "Dokumenten KI",
+    "LLM Integration",
+    "Product Engineering",
+  ],
+  authors: [
+    { name: "Fynn-Luca Schulz", url: `${SITE_URL}/team#fynn-schulz` },
+    { name: "Julian Stosse", url: `${SITE_URL}/team#julian-stosse` },
+  ],
+  creator: "Schulz & Stosse GbR",
+  publisher: "Schulz & Stosse GbR",
+  category: "Softwareentwicklung",
+  alternates: {
+    canonical: "/",
+    languages: {
+      "de-DE": "/",
+      "x-default": "/",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-snippet": -1,
+    "max-image-preview": "large",
+    "max-video-preview": -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Schulz & Stosse",
-    description: "Software, die sich Ihrem Unternehmen anpasst. Nicht umgekehrt.",
     type: "website",
     locale: "de_DE",
+    url: SITE_URL,
+    siteName: "Schulz & Stosse",
+    title: "Schulz & Stosse · Individuelle Software, KI & digitale Produkte",
+    description:
+      "Softwareagentur für individuelle Softwaresysteme, KI-gestützte Prozesse und digitale Produkte. Von der Konzeption bis zum Betrieb.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Schulz & Stosse · Software, die sich Ihrem Unternehmen anpasst.",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Schulz & Stosse · Individuelle Software, KI & digitale Produkte",
+    description:
+      "Softwareagentur für individuelle Softwaresysteme, KI-gestützte Prozesse und digitale Produkte.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [{ url: "/icon.png", sizes: "32x32", type: "image/png" }],
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
 };
 
@@ -50,6 +144,9 @@ export default function RootLayout({
       lang="de"
       className={`${display.variable} ${sans.variable} ${mono.variable}`}
     >
+      <head>
+        <Schema />
+      </head>
       <body>
         <ScrollProgress />
         <CalendlyProvider>{children}</CalendlyProvider>

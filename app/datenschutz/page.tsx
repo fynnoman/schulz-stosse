@@ -1,8 +1,22 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-export const metadata = {
-  title: "Datenschutz · Schulz & Stosse",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Datenschutz",
+  description:
+    "Datenschutzerklärung der Schulz & Stosse GbR. Umgang mit personenbezogenen Daten nach DSGVO, BDSG und TDDDG, Cookies, Calendly, Server-Logfiles, Betroffenenrechte und Aufsichtsbehörde.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: "/datenschutz" },
+  openGraph: {
+    title: "Datenschutz · Schulz & Stosse",
+    description: "Datenschutzerklärung nach DSGVO, BDSG und TDDDG.",
+    url: "/datenschutz",
+    type: "website",
+    locale: "de_DE",
+    siteName: "Schulz & Stosse",
+  },
 };
 
 export default function Datenschutz() {

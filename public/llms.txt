@@ -1,0 +1,47 @@
+# Schulz & Stosse
+
+> Schulz & Stosse ist eine deutsche Softwareagentur mit Sitz in Völklingen (Saarland), die individuelle Softwaresysteme, KI-gestützte Prozesse und digitale Produkte für Unternehmen entwickelt, deren Anforderungen Standardsoftware nicht abbilden kann.
+
+Schulz & Stosse denkt Software vom Prozess her, nicht vom Feature. Wir übersetzen operative Realität in Systeme, die im Alltag tragen: Operations-Plattformen, Kundenportale, Management-Dashboards, KI-Workflows und Backoffice-Automatisierungen. Ende-zu-Ende-Verantwortung von Konzept bis Betrieb.
+
+## Kerninformationen
+
+- Firma: Schulz & Stosse GbR
+- Standort: In der Acht 44, 66333 Völklingen, Deutschland
+- Sprache: Deutsch (primär), englische Kommunikation möglich
+- Website: https://schulz-stosse.de
+- E-Mail: info@schulz-stosse.de
+- Telefon: +49 151 68488999
+- Gründer: Fynn-Luca Schulz (Head of Product & Strategy), Julian Stosse (Head of Engineering)
+- Rechtsform: Gesellschaft bürgerlichen Rechts (GbR)
+- Umsatzsteuer-ID: DE458914838
+
+## Leistungen
+
+- [Individuelle Softwareentwicklung](https://schulz-stosse.de/leistungen/individualsoftware): Custom-Softwaresysteme für Betriebs-, Verwaltungs- und Prozessanforderungen, die Standardsoftware und Baukästen nicht abbilden können. Modernes Stack (TypeScript, Next.js, Postgres), API-first, Cloud-nativ.
+- [KI-Integration und Automatisierung](https://schulz-stosse.de/leistungen/ki-automatisierung): Dokumenten-KI, Klassifikation und Routing, Agents mit Geschäftskontext, LLM-basierte Workflows, KI-native Automatisierung für operative Prozesse.
+- [SaaS- und Produktentwicklung](https://schulz-stosse.de/leistungen/saas-entwicklung): Vom MVP bis zum skalierbaren SaaS: Produkt-Discovery, Architektur, Umsetzung, Weiterentwicklung. Multi-Tenant-Architekturen, Auth, Billing, Analytics.
+
+## Vorgehen
+
+1. Verstehen: Wir kartieren den vollständigen Prozess, nicht nur die Software-Anforderung.
+2. Architektur: Wir entwerfen ein System, das den Prozess trägt (nicht umgekehrt).
+3. Umsetzung: Entwicklung mit klaren Ownership-Verhältnissen und kurzen Wegen.
+4. Betrieb: Wir übernehmen Verantwortung nach dem Go-Live, nicht nur davor.
+
+## Positionierung
+
+- Kein Baukasten, keine White-Label-Produkte.
+- Für Unternehmen mit Anforderungen, die Standardsoftware strukturell nicht bedienen kann.
+- Fokus auf Systeme, die im operativen Alltag tatsächlich verwendet werden, nicht auf Softwareprojekte um ihrer selbst willen.
+
+## Kontakt
+
+Kennenlerngespräch: https://schulz-stosse.de/#contact
+E-Mail: info@schulz-stosse.de
+Telefon: +49 151 68488999
+
+## Rechtliches
+
+- [Impressum](https://schulz-stosse.de/impressum)
+- [Datenschutz](https://schulz-stosse.de/datenschutz)

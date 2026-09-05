@@ -5,11 +5,11 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Logo from "./Logo";
 
 const links = [
-  { href: "#what", label: "Was wir bauen" },
-  { href: "#services", label: "Leistungen" },
-  { href: "#process", label: "Vorgehen" },
-  { href: "#cases", label: "Cases" },
-  { href: "#founders", label: "Team" },
+  { href: "/#what", label: "Was wir bauen" },
+  { href: "/#services", label: "Leistungen" },
+  { href: "/#process", label: "Vorgehen" },
+  { href: "/#cases", label: "Cases" },
+  { href: "/team", label: "Team" },
 ];
 
 export default function Nav() {

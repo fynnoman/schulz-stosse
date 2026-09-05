@@ -1,8 +1,22 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-export const metadata = {
-  title: "Impressum · Schulz & Stosse",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Impressum",
+  description:
+    "Impressum der Schulz & Stosse GbR, Softwareagentur in Völklingen. Anbieterkennzeichnung nach § 5 DDG, Kontakt, Umsatzsteuer-ID und redaktionelle Verantwortung nach § 18 MStV.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: "/impressum" },
+  openGraph: {
+    title: "Impressum · Schulz & Stosse",
+    description: "Anbieterkennzeichnung der Schulz & Stosse GbR.",
+    url: "/impressum",
+    type: "website",
+    locale: "de_DE",
+    siteName: "Schulz & Stosse",
+  },
 };
 
 export default function Impressum() {
