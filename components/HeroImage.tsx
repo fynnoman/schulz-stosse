@@ -4,7 +4,20 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const images = ["/hero-1.webp", "/hero-2.webp", "/hero-3.webp"];
+const images: { src: string; alt: string }[] = [
+  {
+    src: "/hero-1.webp",
+    alt: "Schulz & Stosse: Arbeitsumgebung mit Fokus auf digitale Prozesse",
+  },
+  {
+    src: "/hero-2.webp",
+    alt: "Schulz & Stosse: Zusammenarbeit an einem Softwaresystem im Team",
+  },
+  {
+    src: "/hero-3.webp",
+    alt: "Schulz & Stosse: Individuelle Softwareentwicklung im Alltag",
+  },
+];
 const INTERVAL = 2600;
 
 export default function HeroImage() {
@@ -30,9 +43,9 @@ export default function HeroImage() {
 
       {/* Straight frame, larger */}
       <div className="relative aspect-[4/5] w-full rounded-[28px] overflow-hidden border border-black/10 shadow-hard bg-ink-800">
-        {images.map((src, idx) => (
+        {images.map((image, idx) => (
           <motion.div
-            key={src}
+            key={image.src}
             initial={false}
             animate={{
               opacity: idx === i ? 1 : 0,
@@ -41,10 +54,11 @@ export default function HeroImage() {
             }}
             transition={{ duration: 1.1, ease: [0.23, 1, 0.32, 1] }}
             className="absolute inset-0"
+            aria-hidden={idx !== i}
           >
             <Image
-              src={src}
-              alt=""
+              src={image.src}
+              alt={idx === i ? image.alt : ""}
               fill
               priority={idx === 0}
               sizes="(min-width: 1024px) 50vw, 100vw"

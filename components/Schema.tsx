@@ -6,6 +6,10 @@ const WEBSITE_ID = `${SITE_URL}/#website`;
 const PLACE_ID = `${SITE_URL}/#place`;
 const FYNN_ID = `${SITE_URL}/#fynn-schulz`;
 const JULIAN_ID = `${SITE_URL}/#julian-stosse`;
+const TASKEY_ID = `${SITE_URL}/#taskey`;
+const SERVICE_INDIVIDUAL_ID = `${SITE_URL}/leistungen/individualsoftware#service`;
+const SERVICE_KI_ID = `${SITE_URL}/leistungen/ki-automatisierung#service`;
+const SERVICE_SAAS_ID = `${SITE_URL}/leistungen/saas-entwicklung#service`;
 
 const organization = {
   "@context": "https://schema.org",
@@ -15,21 +19,30 @@ const organization = {
       "@id": ORG_ID,
       name: "Schulz & Stosse",
       alternateName: "Schulz & Stosse GbR",
+      legalName: "Schulz & Stosse GbR",
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/logo-dark.webp`,
         width: 600,
         height: 327,
+        caption: "Schulz & Stosse",
       },
       image: `${SITE_URL}/og-image.png`,
+      slogan: "Software, die sich Ihrem Unternehmen anpasst.",
       description:
         "Schulz & Stosse entwickelt individuelle Softwaresysteme, KI-gestützte Prozesse und digitale Produkte für Unternehmen mit Anforderungen, die Standardsoftware nicht abbilden kann.",
       email: "info@schulz-stosse.de",
-      telephone: "+49 151 68488999",
+      telephone: "+49-151-68488999",
       vatID: "DE458914838",
       foundingDate: "2025",
+      foundingLocation: { "@id": PLACE_ID },
+      priceRange: "€€€",
+      currenciesAccepted: "EUR",
+      paymentAccepted: ["Bank Transfer", "SEPA"],
       founder: [{ "@id": FYNN_ID }, { "@id": JULIAN_ID }],
+      employee: [{ "@id": FYNN_ID }, { "@id": JULIAN_ID }],
+      numberOfEmployees: { "@type": "QuantitativeValue", value: 2 },
       knowsAbout: [
         "Individuelle Softwareentwicklung",
         "Custom Software Development",
@@ -43,6 +56,9 @@ const organization = {
         "Operations-Software",
         "Kundenportale",
         "Management-Dashboards",
+        "Multi-Tenant SaaS",
+        "LLM-Integration",
+        "Dokumenten-KI",
       ],
       areaServed: [
         { "@type": "Country", name: "Deutschland" },
@@ -58,20 +74,39 @@ const organization = {
         addressRegion: "Saarland",
         addressCountry: "DE",
       },
-      contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "sales",
-        email: "info@schulz-stosse.de",
-        telephone: "+49 151 68488999",
-        areaServed: ["DE", "AT", "CH"],
-        availableLanguage: ["de", "en"],
-      },
-      sameAs: [],
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          email: "info@schulz-stosse.de",
+          telephone: "+49-151-68488999",
+          areaServed: ["DE", "AT", "CH"],
+          availableLanguage: ["de", "en"],
+        },
+        {
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          email: "info@schulz-stosse.de",
+          telephone: "+49-151-68488999",
+          areaServed: ["DE", "AT", "CH"],
+          availableLanguage: ["de", "en"],
+        },
+      ],
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "09:00",
+          closes: "18:00",
+        },
+      ],
+      sameAs: [] as string[],
       makesOffer: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
+            "@id": SERVICE_INDIVIDUAL_ID,
             name: "Individuelle Softwareentwicklung",
             url: `${SITE_URL}/leistungen/individualsoftware`,
             description:
@@ -85,6 +120,7 @@ const organization = {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
+            "@id": SERVICE_KI_ID,
             name: "KI-Integration und Automatisierung",
             url: `${SITE_URL}/leistungen/ki-automatisierung`,
             description:
@@ -98,6 +134,7 @@ const organization = {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
+            "@id": SERVICE_SAAS_ID,
             name: "SaaS- und Produktentwicklung",
             url: `${SITE_URL}/leistungen/saas-entwicklung`,
             description:
@@ -109,6 +146,7 @@ const organization = {
         },
       ],
       location: { "@id": PLACE_ID },
+      owns: [{ "@id": TASKEY_ID }],
     },
     {
       "@type": "Place",
@@ -152,6 +190,7 @@ const organization = {
         "Product Discovery",
       ],
       knowsLanguage: ["Deutsch", "Englisch"],
+      sameAs: [] as string[],
     },
     {
       "@type": "Person",
@@ -173,9 +212,107 @@ const organization = {
         "Cloud-Infrastruktur",
       ],
       knowsLanguage: ["Deutsch", "Englisch"],
+      sameAs: [] as string[],
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": TASKEY_ID,
+      name: "Taskey",
+      applicationCategory: "BusinessApplication",
+      applicationSubCategory: "Operations Management",
+      operatingSystem: "Web, iOS, Android",
+      url: "https://taskeyapp.com",
+      sameAs: ["https://taskeyapp.com"],
+      creator: { "@id": ORG_ID },
+      publisher: { "@id": ORG_ID },
+      description:
+        "Operations-Software für Dienstleistungsunternehmen (Reinigung, Facility Management, Handwerk). Aufträge, Mitarbeiter, Objekte, Dokumentation, Kommunikation und KI-Klassifikation in einem System.",
+      featureList: [
+        "Multi-Tenancy",
+        "Rollen & Rechte",
+        "Offline-fähig",
+        "AI Klassifikation",
+        "Reports",
+        "Auftragsverwaltung",
+        "Objektverwaltung",
+        "Team-Management",
+      ],
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "EUR",
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          priceCurrency: "EUR",
+          description: "Preise auf Anfrage",
+        },
+      },
     },
   ],
 };
+
+export type WebPageInput = {
+  path: string;
+  title: string;
+  description: string;
+  breadcrumbs: { label: string; href: string }[];
+  datePublished?: string;
+  dateModified?: string;
+  about?: string[];
+  mentions?: string[];
+  primaryImage?: string;
+  type?: "WebPage" | "AboutPage" | "ContactPage" | "FAQPage" | "CollectionPage";
+};
+
+export function buildWebPageGraph({
+  path,
+  title,
+  description,
+  breadcrumbs,
+  datePublished = "2026-09-06",
+  dateModified = "2026-09-06",
+  about = [],
+  mentions = [],
+  primaryImage = `${SITE_URL}/og-image.png`,
+  type = "WebPage",
+}: WebPageInput) {
+  const absoluteUrl = `${SITE_URL}${path === "/" ? "" : path}`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": type,
+        "@id": `${absoluteUrl}#webpage`,
+        url: absoluteUrl,
+        name: title,
+        description,
+        isPartOf: { "@id": WEBSITE_ID },
+        primaryImageOfPage: { "@type": "ImageObject", url: primaryImage },
+        datePublished,
+        dateModified,
+        inLanguage: "de-DE",
+        publisher: { "@id": ORG_ID },
+        about:
+          about.length > 0
+            ? about.map((id) => ({ "@id": id }))
+            : [{ "@id": ORG_ID }],
+        ...(mentions.length > 0 && {
+          mentions: mentions.map((id) => ({ "@id": id })),
+        }),
+        breadcrumb: { "@id": `${absoluteUrl}#breadcrumb` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${absoluteUrl}#breadcrumb`,
+        itemListElement: breadcrumbs.map((c, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: c.label,
+          item: c.href.startsWith("http") ? c.href : `${SITE_URL}${c.href === "/" ? "" : c.href}`,
+        })),
+      },
+    ],
+  };
+}
 
 export default function Schema() {
   return (
@@ -194,4 +331,8 @@ export {
   WEBSITE_ID,
   FYNN_ID,
   JULIAN_ID,
+  TASKEY_ID,
+  SERVICE_INDIVIDUAL_ID,
+  SERVICE_KI_ID,
+  SERVICE_SAAS_ID,
 };

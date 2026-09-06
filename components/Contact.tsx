@@ -25,9 +25,27 @@ export default function Contact() {
         style={{ y, scale }}
         className="absolute inset-x-0 top-4 flex justify-center pointer-events-none select-none"
       >
-        <span aria-hidden="true" className="display italic text-[clamp(140px,26vw,420px)] leading-none text-white/[0.04] tracking-tighter">
-          Let&rsquo;s build.
-        </span>
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          role="presentation"
+          viewBox="0 0 1200 220"
+          className="w-[min(96vw,1600px)] h-auto"
+        >
+          <text
+            x="50%"
+            y="70%"
+            textAnchor="middle"
+            fontFamily="'Instrument Serif', ui-serif, Georgia, serif"
+            fontStyle="italic"
+            fontSize="300"
+            letterSpacing="-10"
+            fill="#ffffff"
+            fillOpacity="0.04"
+          >
+            Let&#8217;s build.
+          </text>
+        </svg>
       </motion.div>
 
       <div className="container-x relative">

@@ -3,7 +3,15 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ServiceCTA from "@/components/ServiceCTA";
-import { SITE_URL, ORG_ID } from "@/components/Schema";
+import PageSchema from "@/components/PageSchema";
+import {
+  SITE_URL,
+  ORG_ID,
+  SERVICE_SAAS_ID,
+  FYNN_ID,
+  JULIAN_ID,
+  TASKEY_ID,
+} from "@/components/Schema";
 
 const URL = `${SITE_URL}/leistungen/saas-entwicklung`;
 
@@ -80,6 +88,18 @@ const serviceSchema = {
 export default function SaaSEntwicklungPage() {
   return (
     <main>
+      <PageSchema
+        path="/leistungen/saas-entwicklung"
+        title="SaaS-Entwicklung: MVP, Produkt, Skalierung"
+        description="SaaS-Entwicklung von der Discovery über MVP bis zur skalierbaren Produktarchitektur. Multi-Tenant, Auth, Billing, Analytics."
+        breadcrumbs={[
+          { label: "Start", href: "/" },
+          { label: "Leistungen", href: "/#services" },
+          { label: "SaaS-Entwicklung", href: "/leistungen/saas-entwicklung" },
+        ]}
+        about={[SERVICE_SAAS_ID, ORG_ID]}
+        mentions={[FYNN_ID, JULIAN_ID, TASKEY_ID]}
+      />
       <Nav />
       <script
         type="application/ld+json"
@@ -96,7 +116,13 @@ export default function SaaSEntwicklungPage() {
         />
 
         <header className="mb-16 max-w-[70ch]">
-          <div className="eyebrow mb-4">Leistung · 03</div>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-1 mb-4">
+            <div className="eyebrow">Leistung · 03</div>
+            <div className="eyebrow !text-ink-500">
+              Aktualisiert:{" "}
+              <time dateTime="2026-09-06">6. September 2026</time>
+            </div>
+          </div>
           <h1 className="display text-[clamp(40px,6vw,88px)] leading-[0.95] tracking-tighter mb-6">
             Vom{" "}
             <em className="italic text-ink-500">Ansatz</em> zum skalierten

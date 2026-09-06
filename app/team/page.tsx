@@ -3,6 +3,7 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import PageSchema from "@/components/PageSchema";
 import { SITE_URL, ORG_ID, FYNN_ID, JULIAN_ID } from "@/components/Schema";
 
 const URL = `${SITE_URL}/team`;
@@ -99,6 +100,18 @@ const leadership = [
 export default function TeamPage() {
   return (
     <main>
+      <PageSchema
+        path="/team"
+        title="Team · Fynn-Luca Schulz & Julian Stosse"
+        description="Die Gründer und Verantwortlichen hinter Schulz & Stosse: Fynn-Luca Schulz (Head of Product & Strategy) und Julian Stosse (Head of Engineering)."
+        breadcrumbs={[
+          { label: "Start", href: "/" },
+          { label: "Team", href: "/team" },
+        ]}
+        about={[FYNN_ID, JULIAN_ID, ORG_ID]}
+        mentions={[ORG_ID]}
+        type="AboutPage"
+      />
       <Nav />
       <script
         type="application/ld+json"

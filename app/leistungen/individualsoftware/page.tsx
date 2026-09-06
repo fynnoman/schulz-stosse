@@ -3,7 +3,15 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ServiceCTA from "@/components/ServiceCTA";
-import { SITE_URL, ORG_ID } from "@/components/Schema";
+import PageSchema from "@/components/PageSchema";
+import {
+  SITE_URL,
+  ORG_ID,
+  SERVICE_INDIVIDUAL_ID,
+  FYNN_ID,
+  JULIAN_ID,
+  TASKEY_ID,
+} from "@/components/Schema";
 
 const URL = `${SITE_URL}/leistungen/individualsoftware`;
 
@@ -112,6 +120,18 @@ const serviceSchema = {
 export default function IndividualsoftwarePage() {
   return (
     <main>
+      <PageSchema
+        path="/leistungen/individualsoftware"
+        title="Individuelle Softwareentwicklung für Unternehmen"
+        description="Individuelle Softwareentwicklung für Unternehmen, deren Prozesse Standardsoftware nicht abbilden kann. Ende-zu-Ende von Konzept bis Betrieb."
+        breadcrumbs={[
+          { label: "Start", href: "/" },
+          { label: "Leistungen", href: "/#services" },
+          { label: "Individuelle Softwareentwicklung", href: "/leistungen/individualsoftware" },
+        ]}
+        about={[SERVICE_INDIVIDUAL_ID, ORG_ID]}
+        mentions={[FYNN_ID, JULIAN_ID, TASKEY_ID]}
+      />
       <Nav />
       <script
         type="application/ld+json"
@@ -128,7 +148,13 @@ export default function IndividualsoftwarePage() {
         />
 
         <header className="mb-16 max-w-[70ch]">
-          <div className="eyebrow mb-4">Leistung · 01</div>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-1 mb-4">
+            <div className="eyebrow">Leistung · 01</div>
+            <div className="eyebrow !text-ink-500">
+              Aktualisiert:{" "}
+              <time dateTime="2026-09-06">6. September 2026</time>
+            </div>
+          </div>
           <h1 className="display text-[clamp(40px,6vw,88px)] leading-[0.95] tracking-tighter mb-6">
             Individuelle Softwareentwicklung für{" "}
             <em className="italic text-ink-500">Ihre</em> Prozesse.

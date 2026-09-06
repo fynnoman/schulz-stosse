@@ -55,6 +55,7 @@ export default function Footer() {
             <div className="eyebrow !text-bone-300 mb-4">Unternehmen</div>
             <ul className="space-y-2 text-[14px]">
               <li><a href="/team" className="hover:text-signal-500 transition-colors">Team</a></li>
+              <li><a href="/kontakt" className="hover:text-signal-500 transition-colors">Kontakt</a></li>
               <li><a href="/#process" className="hover:text-signal-500 transition-colors">Vorgehen</a></li>
               <li><a href="/#cases" className="hover:text-signal-500 transition-colors">Cases</a></li>
               <li><a href="/#faq" className="hover:text-signal-500 transition-colors">Häufige Fragen</a></li>
@@ -65,7 +66,7 @@ export default function Footer() {
 
           <div className="col-span-12 md:col-span-3">
             <div className="eyebrow !text-bone-300 mb-4">Standort</div>
-            <div className="text-[14px] leading-[1.6] text-ink-100">
+            <address className="not-italic text-[14px] leading-[1.6] text-ink-100">
               Schulz &amp; Stosse GbR
               <br />
               In der Acht 44
@@ -73,7 +74,7 @@ export default function Footer() {
               66333 Völklingen · Deutschland
               <br />
               <span className="text-bone-300">Remote weltweit</span>
-            </div>
+            </address>
             <div className="mt-6 flex flex-wrap gap-2">
               {["Web", "iOS", "Android", "Backend", "AI"].map((t) => (
                 <span

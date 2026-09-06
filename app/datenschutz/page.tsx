@@ -1,5 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import PageSchema from "@/components/PageSchema";
+import { ORG_ID } from "@/components/Schema";
 
 import type { Metadata } from "next";
 
@@ -22,6 +24,16 @@ export const metadata: Metadata = {
 export default function Datenschutz() {
   return (
     <main>
+      <PageSchema
+        path="/datenschutz"
+        title="Datenschutz · Schulz & Stosse"
+        description="Datenschutzerklärung der Schulz & Stosse GbR nach DSGVO, BDSG und TDDDG."
+        breadcrumbs={[
+          { label: "Start", href: "/" },
+          { label: "Datenschutz", href: "/datenschutz" },
+        ]}
+        about={[ORG_ID]}
+      />
       <Nav />
       <section className="container-x pt-40 pb-32">
         <div className="eyebrow mb-4">Rechtliches</div>

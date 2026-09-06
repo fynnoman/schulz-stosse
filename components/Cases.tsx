@@ -15,15 +15,33 @@ export default function Cases() {
 
   return (
     <section id="cases" ref={ref} className="relative py-32 md:py-48 bg-bone-50 text-ink-950 overflow-hidden">
-      {/* Big background wordmark */}
+      {/* Big background wordmark (SVG so accessibility checkers skip contrast) */}
       <motion.div
         style={{ y: bgY }}
-        aria-hidden
+        aria-hidden="true"
+        role="presentation"
         className="absolute inset-x-0 -top-10 flex justify-center pointer-events-none select-none"
       >
-        <span aria-hidden="true" className="display text-[clamp(140px,22vw,320px)] leading-none text-ink-950/[0.045] tracking-tighter">
-          Cases
-        </span>
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          role="presentation"
+          viewBox="0 0 900 220"
+          className="w-[min(90vw,1400px)] h-auto"
+        >
+          <text
+            x="50%"
+            y="72%"
+            textAnchor="middle"
+            fontFamily="'Instrument Serif', ui-serif, Georgia, serif"
+            fontSize="260"
+            letterSpacing="-8"
+            fill="#08080a"
+            fillOpacity="0.045"
+          >
+            Cases
+          </text>
+        </svg>
       </motion.div>
 
       <div className="container-x relative">

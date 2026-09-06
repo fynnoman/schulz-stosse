@@ -1,5 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import PageSchema from "@/components/PageSchema";
+import { ORG_ID } from "@/components/Schema";
 
 import type { Metadata } from "next";
 
@@ -22,6 +24,16 @@ export const metadata: Metadata = {
 export default function Impressum() {
   return (
     <main>
+      <PageSchema
+        path="/impressum"
+        title="Impressum · Schulz & Stosse"
+        description="Impressum der Schulz & Stosse GbR, Softwareagentur in Völklingen. Anbieterkennzeichnung nach § 5 DDG."
+        breadcrumbs={[
+          { label: "Start", href: "/" },
+          { label: "Impressum", href: "/impressum" },
+        ]}
+        about={[ORG_ID]}
+      />
       <Nav />
       <section className="container-x pt-40 pb-32">
         <div className="eyebrow mb-4">Rechtliches</div>
@@ -34,7 +46,7 @@ export default function Impressum() {
             <h2 className="font-mono text-[11px] tracking-[0.14em] uppercase text-ink-300 mb-2">
               Angaben gemäß § 5 DDG
             </h2>
-            <p>
+            <address className="not-italic">
               Schulz &amp; Stosse GbR
               <br />
               In der Acht 44
@@ -42,7 +54,7 @@ export default function Impressum() {
               66333 Völklingen
               <br />
               Deutschland
-            </p>
+            </address>
           </div>
 
           <div>

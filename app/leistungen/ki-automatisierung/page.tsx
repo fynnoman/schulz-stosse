@@ -3,7 +3,14 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ServiceCTA from "@/components/ServiceCTA";
-import { SITE_URL, ORG_ID } from "@/components/Schema";
+import PageSchema from "@/components/PageSchema";
+import {
+  SITE_URL,
+  ORG_ID,
+  SERVICE_KI_ID,
+  FYNN_ID,
+  JULIAN_ID,
+} from "@/components/Schema";
 
 const URL = `${SITE_URL}/leistungen/ki-automatisierung`;
 
@@ -82,6 +89,18 @@ const serviceSchema = {
 export default function KIAutomatisierungPage() {
   return (
     <main>
+      <PageSchema
+        path="/leistungen/ki-automatisierung"
+        title="KI-Integration und Automatisierung für Unternehmen"
+        description="Dokumenten-KI, Klassifikation, Routing, Agents mit Geschäftskontext und LLM-basierte Workflows. Wir integrieren KI in reale Unternehmensprozesse."
+        breadcrumbs={[
+          { label: "Start", href: "/" },
+          { label: "Leistungen", href: "/#services" },
+          { label: "KI-Integration und Automatisierung", href: "/leistungen/ki-automatisierung" },
+        ]}
+        about={[SERVICE_KI_ID, ORG_ID]}
+        mentions={[FYNN_ID, JULIAN_ID]}
+      />
       <Nav />
       <script
         type="application/ld+json"
@@ -98,7 +117,13 @@ export default function KIAutomatisierungPage() {
         />
 
         <header className="mb-16 max-w-[70ch]">
-          <div className="eyebrow mb-4">Leistung · 02</div>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-1 mb-4">
+            <div className="eyebrow">Leistung · 02</div>
+            <div className="eyebrow !text-ink-500">
+              Aktualisiert:{" "}
+              <time dateTime="2026-09-06">6. September 2026</time>
+            </div>
+          </div>
           <h1 className="display text-[clamp(40px,6vw,88px)] leading-[0.95] tracking-tighter mb-6">
             KI dort einsetzen, wo sie{" "}
             <em className="italic text-ink-500">wirklich</em> Wirkung erzeugt.
