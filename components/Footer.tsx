@@ -88,6 +88,49 @@ export default function Footer() {
           </div>
         </div>
 
+        <div className="mt-14 pt-10 border-t border-white/6 grid grid-cols-12 gap-6">
+          <div className="col-span-6 md:col-span-3">
+            <div className="eyebrow !text-bone-300 mb-4">Lösungen</div>
+            <ul className="space-y-2 text-[14px]">
+              <li><a href="/loesungen/operations-plattform" className="hover:text-signal-500 transition-colors">Operations-Plattform</a></li>
+              <li><a href="/loesungen/kundenportal" className="hover:text-signal-500 transition-colors">Kundenportal</a></li>
+              <li><a href="/loesungen/dokumenten-ki" className="hover:text-signal-500 transition-colors">Dokumenten-KI</a></li>
+            </ul>
+          </div>
+          <div className="col-span-6 md:col-span-3">
+            <div className="eyebrow !text-bone-300 mb-4">Branchen</div>
+            <ul className="space-y-2 text-[14px]">
+              <li><a href="/branchen/reinigung" className="hover:text-signal-500 transition-colors">Reinigung</a></li>
+              <li><a href="/branchen/facility-management" className="hover:text-signal-500 transition-colors">Facility Management</a></li>
+              <li><a href="/branchen/handwerk" className="hover:text-signal-500 transition-colors">Handwerk</a></li>
+            </ul>
+          </div>
+          <div className="col-span-6 md:col-span-3">
+            <div className="eyebrow !text-bone-300 mb-4">Wissen</div>
+            <ul className="space-y-2 text-[14px]">
+              <li><a href="/wissen" className="hover:text-signal-500 transition-colors">Alle Aufsätze</a></li>
+              <li><a href="/wissen/individualsoftware-vs-standardsoftware" className="hover:text-signal-500 transition-colors">Wann Standardsoftware kippt</a></li>
+              <li><a href="/wissen/dokumenten-ki-mittelstand" className="hover:text-signal-500 transition-colors">Dokumenten-KI im Mittelstand</a></li>
+              <li><a href="/wissen/multi-tenant-saas-architektur" className="hover:text-signal-500 transition-colors">Multi-Tenant SaaS</a></li>
+              <li><a href="/wissen/operations-software-dienstleister" className="hover:text-signal-500 transition-colors">Operations-Software</a></li>
+              <li><a href="/wissen/kundenportale-anti-patterns" className="hover:text-signal-500 transition-colors">Kundenportale · Anti-Patterns</a></li>
+            </ul>
+          </div>
+          <div className="col-span-6 md:col-span-3">
+            <div className="eyebrow !text-bone-300 mb-4">Antworten</div>
+            <ul className="space-y-2 text-[14px]">
+              <li><a href="/faq" className="hover:text-signal-500 transition-colors">Häufige Fragen</a></li>
+              <li><a href="/kontakt" className="hover:text-signal-500 transition-colors">Kontakt</a></li>
+              <li><a href="/#contact" className="hover:text-signal-500 transition-colors">Kennenlerngespräch</a></li>
+              <li><a href="/cases/taskey" className="hover:text-signal-500 transition-colors">Case · Taskey</a></li>
+              <li><a href="/regionen/saarland" className="hover:text-signal-500 transition-colors">Softwareagentur Saarland</a></li>
+              <li><a href="/team/fynn-schulz" className="hover:text-signal-500 transition-colors">Fynn-Luca Schulz</a></li>
+              <li><a href="/team/julian-stosse" className="hover:text-signal-500 transition-colors">Julian Stosse</a></li>
+              <li><a href="/sitemap" className="hover:text-signal-500 transition-colors">Alle Seiten</a></li>
+            </ul>
+          </div>
+        </div>
+
         <div className="mt-12 pt-6 border-t border-white/6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[12px] text-bone-300">
           <div>© {new Date().getFullYear()} Schulz &amp; Stosse. Alle Rechte vorbehalten.</div>
           <div className="flex items-center gap-5">

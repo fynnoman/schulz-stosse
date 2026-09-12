@@ -73,6 +73,24 @@ export default function NotFound() {
                 E-Mail, Telefon, Termin
               </div>
             </Link>
+            <Link href="/wissen" className="card-glass block group">
+              <div className="eyebrow mb-2">Wissen</div>
+              <div className="display text-[22px] leading-[1.15] group-hover:text-signal-500 transition-colors">
+                Aufsätze aus der Praxis
+              </div>
+            </Link>
+            <Link href="/faq" className="card-glass block group">
+              <div className="eyebrow mb-2">FAQ</div>
+              <div className="display text-[22px] leading-[1.15] group-hover:text-signal-500 transition-colors">
+                Häufige Fragen
+              </div>
+            </Link>
+            <Link href="/sitemap" className="card-glass block group">
+              <div className="eyebrow mb-2">Sitemap</div>
+              <div className="display text-[22px] leading-[1.15] group-hover:text-signal-500 transition-colors">
+                Alle Seiten im Überblick
+              </div>
+            </Link>
           </div>
 
           <div className="mt-16 flex flex-wrap items-center gap-3">

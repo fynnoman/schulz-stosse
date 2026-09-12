@@ -148,6 +148,11 @@ export default function RootLayout({
       className={`${display.variable} ${sans.variable} ${mono.variable}`}
     >
       <head>
+        <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://calendly.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://assets.calendly.com" />
+        <link rel="dns-prefetch" href="https://calendly.com" />
+        <link rel="alternate" type="application/rss+xml" title="Schulz & Stosse · Wissen" href="/wissen.xml" />
         <Schema />
       </head>
       <body>

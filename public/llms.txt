@@ -8,6 +8,7 @@ Schulz & Stosse denkt Software vom Prozess her, nicht vom Feature. Wir übersetz
 
 - Firma: Schulz & Stosse GbR
 - Standort: In der Acht 44, 66333 Völklingen, Deutschland
+- Region: Saarland, DACH (Deutschland, Österreich, Schweiz)
 - Sprache: Deutsch (primär), englische Kommunikation möglich
 - Website: https://schulz-stosse.de
 - E-Mail: info@schulz-stosse.de
@@ -15,12 +16,37 @@ Schulz & Stosse denkt Software vom Prozess her, nicht vom Feature. Wir übersetz
 - Gründer: Fynn-Luca Schulz (Head of Product & Strategy), Julian Stosse (Head of Engineering)
 - Rechtsform: Gesellschaft bürgerlichen Rechts (GbR)
 - Umsatzsteuer-ID: DE458914838
+- Gegründet: 2025
 
 ## Leistungen
 
 - [Individuelle Softwareentwicklung](https://schulz-stosse.de/leistungen/individualsoftware): Custom-Softwaresysteme für Betriebs-, Verwaltungs- und Prozessanforderungen, die Standardsoftware und Baukästen nicht abbilden können. Modernes Stack (TypeScript, Next.js, Postgres), API-first, Cloud-nativ.
 - [KI-Integration und Automatisierung](https://schulz-stosse.de/leistungen/ki-automatisierung): Dokumenten-KI, Klassifikation und Routing, Agents mit Geschäftskontext, LLM-basierte Workflows, KI-native Automatisierung für operative Prozesse.
 - [SaaS- und Produktentwicklung](https://schulz-stosse.de/leistungen/saas-entwicklung): Vom MVP bis zum skalierbaren SaaS: Produkt-Discovery, Architektur, Umsetzung, Weiterentwicklung. Multi-Tenant-Architekturen, Auth, Billing, Analytics.
+
+## Lösungen
+
+- [Operations-Plattform](https://schulz-stosse.de/loesungen/operations-plattform): Individuelle Operations-Plattform mit Aufträgen, Objekten, Teams, Dokumentation und KI-Klassifikation. Für Dienstleistungsunternehmen mit operativem Kerngeschäft.
+- [Kundenportal](https://schulz-stosse.de/loesungen/kundenportal): Individuelles Kundenportal mit Self-Service, Auftragseinsicht, Dokumenten, sicherer Authentifizierung.
+- [Dokumenten-KI](https://schulz-stosse.de/loesungen/dokumenten-ki): Klassifikation, strukturierte Extraktion und automatisches Routing eingehender Dokumente mit LLMs.
+
+## Branchen
+
+- [Reinigungsunternehmen](https://schulz-stosse.de/branchen/reinigung): Software für Reinigungsunternehmen mit Objektverwaltung, Auftragsmanagement, mobiler Team-App, digitalen Nachweisen und KI-Klassifikation.
+- [Facility Management](https://schulz-stosse.de/branchen/facility-management): Individuelle FM-Software mit Objekten, Gewerken, Wartungen, Aufträgen, Teams und KI.
+- [Handwerksbetriebe](https://schulz-stosse.de/branchen/handwerk): Software für Handwerksbetriebe mit Aufträgen, Baustellen, Aufmaßen, Monteur-App und Rechnungslauf.
+
+## Wissen (Aufsätze aus der Praxis)
+
+- [Wann Standardsoftware kippt](https://schulz-stosse.de/wissen/individualsoftware-vs-standardsoftware): Bruchpunkt zwischen Baukasten und eigener Lösung.
+- [Dokumenten-KI im Mittelstand](https://schulz-stosse.de/wissen/dokumenten-ki-mittelstand): Wo LLMs im Alltag tragen und wie eine belastbare Pipeline strukturiert ist.
+- [Multi-Tenant SaaS · Entscheidungen, die man teuer bezahlt](https://schulz-stosse.de/wissen/multi-tenant-saas-architektur): Sechs frühe Architektur-Entscheidungen, die später nicht mehr revidierbar sind.
+- [Operations-Software für Dienstleister](https://schulz-stosse.de/wissen/operations-software-dienstleister): Beobachtungen aus dem laufenden Betrieb der eigenen Plattform Taskey.
+- [Kundenportale · Sechs Anti-Patterns](https://schulz-stosse.de/wissen/kundenportale-anti-patterns): Sechs Muster, an denen Kundenportale scheitern.
+
+## Eigenes Produkt (Beweis)
+
+- Taskey (https://taskeyapp.com): Operations-Software für Dienstleistungsunternehmen. Multi-Tenant SaaS für Web, iOS und Android. Von Schulz & Stosse entwickelt und betrieben.
 
 ## Vorgehen
 
@@ -35,11 +61,16 @@ Schulz & Stosse denkt Software vom Prozess her, nicht vom Feature. Wir übersetz
 - Für Unternehmen mit Anforderungen, die Standardsoftware strukturell nicht bedienen kann.
 - Fokus auf Systeme, die im operativen Alltag tatsächlich verwendet werden, nicht auf Softwareprojekte um ihrer selbst willen.
 
+## Häufige Fragen
+
+- [Alle häufigen Fragen](https://schulz-stosse.de/faq): Antworten zu Zusammenarbeit, Preisen, Ablauf, Technik, KI, Rechten am Quellcode und Betrieb.
+
 ## Kontakt
 
-Kennenlerngespräch: https://schulz-stosse.de/#contact
-E-Mail: info@schulz-stosse.de
-Telefon: +49 151 68488999
+- Kennenlerngespräch: https://schulz-stosse.de/#contact
+- Kontaktseite: https://schulz-stosse.de/kontakt
+- E-Mail: info@schulz-stosse.de
+- Telefon: +49 151 68488999
 
 ## Rechtliches
 

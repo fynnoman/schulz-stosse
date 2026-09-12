@@ -1,7 +1,6 @@
-import Script from "next/script";
-
 const SITE_URL = "https://schulz-stosse.de";
 const ORG_ID = `${SITE_URL}/#organization`;
+const LOCAL_ID = `${SITE_URL}/#localbusiness`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
 const PLACE_ID = `${SITE_URL}/#place`;
 const FYNN_ID = `${SITE_URL}/#fynn-schulz`;
@@ -10,6 +9,9 @@ const TASKEY_ID = `${SITE_URL}/#taskey`;
 const SERVICE_INDIVIDUAL_ID = `${SITE_URL}/leistungen/individualsoftware#service`;
 const SERVICE_KI_ID = `${SITE_URL}/leistungen/ki-automatisierung#service`;
 const SERVICE_SAAS_ID = `${SITE_URL}/leistungen/saas-entwicklung#service`;
+
+const GEO_LAT = 49.2506;
+const GEO_LNG = 6.8536;
 
 const organization = {
   "@context": "https://schema.org",
@@ -160,16 +162,70 @@ const organization = {
         addressRegion: "Saarland",
         addressCountry: "DE",
       },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: GEO_LAT,
+        longitude: GEO_LNG,
+      },
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": LOCAL_ID,
+      name: "Schulz & Stosse",
+      legalName: "Schulz & Stosse GbR",
+      url: SITE_URL,
+      logo: `${SITE_URL}/logo-dark.webp`,
+      image: `${SITE_URL}/og-image.png`,
+      description:
+        "Softwareagentur in Völklingen (Saarland). Wir entwickeln individuelle Softwaresysteme, KI-Automatisierung und SaaS-Produkte für Unternehmen in DACH.",
+      email: "info@schulz-stosse.de",
+      telephone: "+49-151-68488999",
+      priceRange: "€€€",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "In der Acht 44",
+        postalCode: "66333",
+        addressLocality: "Völklingen",
+        addressRegion: "Saarland",
+        addressCountry: "DE",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: GEO_LAT,
+        longitude: GEO_LNG,
+      },
+      areaServed: [
+        { "@type": "Country", name: "Deutschland" },
+        { "@type": "Country", name: "Österreich" },
+        { "@type": "Country", name: "Schweiz" },
+        { "@type": "State", name: "Saarland" },
+        { "@type": "City", name: "Saarbrücken" },
+        { "@type": "City", name: "Völklingen" },
+      ],
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "09:00",
+          closes: "18:00",
+        },
+      ],
+      parentOrganization: { "@id": ORG_ID },
     },
     {
       "@type": "WebSite",
       "@id": WEBSITE_ID,
       url: SITE_URL,
       name: "Schulz & Stosse",
+      alternateName: "Schulz und Stosse",
       description:
         "Softwareagentur für individuelle Softwaresysteme, KI-gestützte Prozesse und digitale Produkte.",
       publisher: { "@id": ORG_ID },
       inLanguage: "de-DE",
+      copyrightHolder: { "@id": ORG_ID },
+      copyrightYear: 2026,
+      keywords:
+        "Individuelle Softwareentwicklung, KI-Integration, SaaS-Entwicklung, Operations-Software, Dokumenten-KI, Kundenportal, Softwareagentur Saarland",
     },
     {
       "@type": "Person",
@@ -261,6 +317,7 @@ export type WebPageInput = {
   mentions?: string[];
   primaryImage?: string;
   type?: "WebPage" | "AboutPage" | "ContactPage" | "FAQPage" | "CollectionPage";
+  speakableSelectors?: string[];
 };
 
 export function buildWebPageGraph({
@@ -274,8 +331,18 @@ export function buildWebPageGraph({
   mentions = [],
   primaryImage = `${SITE_URL}/og-image.png`,
   type = "WebPage",
+  speakableSelectors,
 }: WebPageInput) {
   const absoluteUrl = `${SITE_URL}${path === "/" ? "" : path}`;
+  const speakable =
+    speakableSelectors && speakableSelectors.length > 0
+      ? {
+          speakable: {
+            "@type": "SpeakableSpecification",
+            cssSelector: speakableSelectors,
+          },
+        }
+      : {};
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -298,6 +365,7 @@ export function buildWebPageGraph({
         ...(mentions.length > 0 && {
           mentions: mentions.map((id) => ({ "@id": id })),
         }),
+        ...speakable,
         breadcrumb: { "@id": `${absoluteUrl}#breadcrumb` },
       },
       {
@@ -316,10 +384,8 @@ export function buildWebPageGraph({
 
 export default function Schema() {
   return (
-    <Script
-      id="schema-org-graph"
+    <script
       type="application/ld+json"
-      strategy="beforeInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}
     />
   );
@@ -328,7 +394,9 @@ export default function Schema() {
 export {
   SITE_URL,
   ORG_ID,
+  LOCAL_ID,
   WEBSITE_ID,
+  PLACE_ID,
   FYNN_ID,
   JULIAN_ID,
   TASKEY_ID,
